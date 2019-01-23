@@ -4,8 +4,7 @@ files. Each file takes up quite a bit of space, so when disk space
 is limited, it makes sense to delete those that are now longer needed
 while training continues to generate new ones.
 
-This script aims to keep the oldest checkpoint, assumed to be the
-starting checkpoint, the most recent checkpoint, and milestone
+This script aims to keep the most recent checkpoint, and milestone
 checkpoints defined by the MILESTONE_CHKPTS variable.
 """
 import argparse
@@ -20,11 +19,9 @@ def main(checkpoint_path):
                    for filename in os.listdir(checkpoint_path) if ''.join(filter(str.isdigit, filename)).isdigit()}
 
     chkpt_nums = checkpoints.values()
-    start_chkpt_num = min(chkpt_nums)
     end_chkpt_num = max(chkpt_nums)
 
     chkpts_to_keep = MILESTONE_CHKPTS.copy()
-    chkpts_to_keep.append(start_chkpt_num)
     chkpts_to_keep.append(end_chkpt_num)
 
     for fname, chkpt_num in checkpoints.items():

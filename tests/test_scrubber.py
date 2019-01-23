@@ -25,8 +25,8 @@ def sample_fpath(tmp_path):
 def test_main(sample_fpath):
     main(sample_fpath)
     files = os.listdir(sample_fpath)
-    assert len(files) == 4
-    assert "vggnet-001.params" in files
+    assert len(files) == 3
+    assert "vggnet-001.params" not in files
     assert "vggnet-0010.params" not in files
     assert "vggnet-0050.params" in files
     assert "vggnet-0093.params" in files
