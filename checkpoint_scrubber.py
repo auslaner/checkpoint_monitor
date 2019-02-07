@@ -10,7 +10,7 @@ checkpoints defined by the MILESTONE_CHKPTS variable.
 import argparse
 import os
 
-MILESTONE_CHKPTS = [50, 60, 70, 80]
+MILESTONE_CHKPTS = []
 
 
 def main(model_path):
